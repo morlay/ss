@@ -1,0 +1,27 @@
+version: "3.0"
+
+services:
+  shadowsocks:
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - "777:8388/tcp"
+      - "777:8388/udp"
+    volumes:
+      - ./local.acl:/tmp/local.acl
+    environment:
+      - METHOD=aes-256-gcm
+      - PASSWORD=${PASSWORD}
+      - ARGS="--acl /tmp/local.acl"
+    restart: always
+  shadowsocks2:
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - "666:8388/tcp"
+      - "666:8388/udp"
+    volumes:
+      - ./local.acl:/tmp/local.acl
+    environment:
+      - METHOD=aes-256-gcm
+      - PASSWORD=${PASSWORD}
+      - ARGS="--acl /tmp/local.acl"
+    restart: always
