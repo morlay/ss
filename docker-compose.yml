@@ -21,7 +21,7 @@ services:
     volumes:
       - ./local.acl:/tmp/local.acl
     environment:
-      - METHOD=aes-256-gcm
+      - METHOD=aes-256-cfb
       - PASSWORD=${PASSWORD}
       - ARGS="--acl /tmp/local.acl"
     restart: always
