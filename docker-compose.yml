@@ -16,8 +16,8 @@ services:
   shadowsocks2:
     image: shadowsocks/shadowsocks-libev
     ports:
-      - "666:8388/tcp"
-      - "666:8388/udp"
+      - "888:8388/tcp"
+      - "888:8388/udp"
     volumes:
       - ./local.acl:/tmp/local.acl
     environment:
